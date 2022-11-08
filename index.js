@@ -1,28 +1,25 @@
-const express = require('express');
-const cors = require("cors");
+const express = require('express')
+const cors = require('cors')
 const routes = require('./routes')
 
-// Prisma Client
-const app = express();
-const port = 8000;
+const app = express()
+const port = 8000
 
-// Handle Cors, Form Data, and JSON
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
 
-// Rest API Routes
-// curl http://localhost:8000
-app.get("/", async (req, res) => {
-  res.status(201).send({
-    status: true,
-    message: "Hello this is API from Express Tutorial",
-  });
-});
+app.get('/', async (req, res) => {
+    res.status(200).send({
+        status: true,
+        message: 'Hello this API from TodoList Prisma and Express'
+    })
+})
 
 // Routes API
-routes(app);
+routes(app)
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+    console.log(`Server is running on http://localhost:${port}`);
+})
+
